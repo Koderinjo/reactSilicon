@@ -1,32 +1,43 @@
-import { useState } from 'react'
+import React, { useState, useEffect, createContext } from 'react';
+import Header from './components/Header';
+import HeroSection from './components/HeroSection';
+import Brands from './components/Brands';
+import AppFeatures from './components/AppFeatures';
+import HowItWorks from './components/HowItWorks';
+import DesktopSection from './components/DesktopSection';
+import Testimonials from './components/Testimonials';
+import FAQ from './components/FAQ';
+import Subscribe from './components/Subscribe';
+import Footer from './components/Footer';
+
+
+export const DarkModeContext = createContext();
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    document.body.classList.toggle('dark', isDarkMode);
+  }, [isDarkMode]);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <DarkModeContext.Provider value={{ isDarkMode, setIsDarkMode }}>
+      <div className="wrapper">
+        <Header />
+        <main>
+          <HeroSection />
+          <Brands />
+          <AppFeatures />
+          <HowItWorks />
+          <DesktopSection />
+          <Testimonials />
+          <FAQ />
+          <Subscribe />
+        </main>
+        <Footer />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </DarkModeContext.Provider>
+  );
 }
 
-export default App
+export default App;
