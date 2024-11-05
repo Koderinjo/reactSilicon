@@ -13,7 +13,7 @@ const AppFeatures = () => (
   <section id="app-features">
     <div className="container">
       <div id="image">
-        <img src="src/assets/images/iphone-card.svg" alt="Iphone + Card" />
+        <img src="/images/iphone-card.svg" alt="Iphone + Card" />
       </div>
       <div>
         <h1>App Features</h1>
@@ -23,7 +23,7 @@ const AppFeatures = () => (
         {features.map((feature, index) => (
           <div key={index} className="feature-item">
             <div className="icon-box">
-              <img src={`src/assets/images/${feature.img}`} alt={`Icon ${feature.title}`} />
+              <img src={`/images/${feature.img}`} alt={`Icon ${feature.title}`} />
             </div>
             <div className="feature-text">
               <h5>{feature.title}</h5>
