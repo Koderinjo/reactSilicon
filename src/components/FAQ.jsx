@@ -3,6 +3,16 @@ import React, { useContext } from 'react';
 import { DarkModeContext } from '../App';
 import AccordionItem from './AccordionItem';
 
+// Import images from src/assets
+import IconBoxPhoneDark from '../assets/images/icon-box-phone-dark.svg';
+import IconBoxPhoneLight from '../assets/images/icon-box-phone.svg';
+import IconBoxMessageDark from '../assets/images/icon-box-message-dark.svg';
+import IconBoxMessageLight from '../assets/images/icon-box-message.svg';
+import IconBoxPhoneTabletDark from '../assets/images/icon-box-phone-tablet-dark.svg';
+import IconBoxPhoneTabletLight from '../assets/images/icon-box-phone-tablet.svg';
+import IconBoxMessageTabletDark from '../assets/images/icon-box-message-tablet-dark.svg';
+import IconBoxMessageTabletLight from '../assets/images/icon-box-message-tablet.svg';
+
 const faqData = [
   { title: "Is any of my personal information stored in the App?", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
   { title: "What formats can I download my transaction history in?", content: "Soluta perspiciatis amet corrupti omnis eaque." },
@@ -27,7 +37,7 @@ const FAQ = () => {
             <div id="icon-box-phone">
               <a href="#">
                 <img
-                  src={isDarkMode ? '/images/icon-box-phone-dark.svg' : '/images/icon-box-phone.svg'}
+                  src={isDarkMode ? IconBoxPhoneDark : IconBoxPhoneLight}
                   alt="Contact us - Phone"
                 />
               </a>
@@ -35,45 +45,44 @@ const FAQ = () => {
             <div id="icon-box-message">
               <a href="#">
                 <img
-                  src={isDarkMode ? '/images/icon-box-message-dark.svg' : '/images/icon-box-message.svg'}
+                  src={isDarkMode ? IconBoxMessageDark : IconBoxMessageLight}
                   alt="Contact us - Message"
                 />
               </a>
             </div>
           </div>
-
-
         </div>
+        
         <div className="accordion-container">
           {faqData.map((faq, index) => (
             <AccordionItem key={index} title={faq.title} content={faq.content} />
           ))}
         </div>
-          <div className="contact-boxes-tablet">
-            <div id="icon-box-phone-tablet">
-              <a href="#">
-                <img
-                  src={isDarkMode ? '/images/icon-box-phone-tablet-dark.svg' : '/images/icon-box-phone-tablet.svg'}
-                  alt="Contact us - Phone"
-                />
-              </a>
-            </div>
-            <div id="icon-box-message-tablet">
-              <a href="#">
-                <img
-                  src={isDarkMode ? '/images/icon-box-message-tablet-dark.svg' : '/images/icon-box-message-tablet.svg'}
-                  alt="Contact us - Message"
-                />
-              </a>
-            </div>
-          </div>
 
-          <div className="contact-boxes-mobile">
-            <a href="#" id="contact-us" className="btn-primary">
-              <span>Contact us now</span>
+        <div className="contact-boxes-tablet">
+          <div id="icon-box-phone-tablet">
+            <a href="#">
+              <img
+                src={isDarkMode ? IconBoxPhoneTabletDark : IconBoxPhoneTabletLight}
+                alt="Contact us - Phone"
+              />
             </a>
           </div>
+          <div id="icon-box-message-tablet">
+            <a href="#">
+              <img
+                src={isDarkMode ? IconBoxMessageTabletDark : IconBoxMessageTabletLight}
+                alt="Contact us - Message"
+              />
+            </a>
+          </div>
+        </div>
 
+        <div className="contact-boxes-mobile">
+          <a href="#" id="contact-us" className="btn-primary">
+            <span>Contact us now</span>
+          </a>
+        </div>
       </div>
     </section>
   );

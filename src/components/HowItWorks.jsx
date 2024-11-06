@@ -1,10 +1,16 @@
 import React from 'react';
+import IphoneLeftDesk from '../assets/images/iphone-left-desk.svg';
+import IphoneMidDesk from '../assets/images/iphone-mid-desk.svg';
+import IphoneRightDesk from '../assets/images/iphone-right-desk.svg';
+import IphoneLeftTab from '../assets/images/iphone-left-tab.svg';
+import IphoneMidTab from '../assets/images/iphone-mid-tab.svg';
+import IphoneRightTab from '../assets/images/iphone-right-tab.svg';
 
 const HowItWorks = () => {
   const images = [
-    { id: 'left', alt: 'iPhone to the left', desktopSrc: 'iphone-left-desk.svg', tabletSrc: 'iphone-left-tab.svg' },
-    { id: 'mid', alt: 'iPhone in the middle', desktopSrc: 'iphone-mid-desk.svg', tabletSrc: 'iphone-mid-tab.svg' },
-    { id: 'right', alt: 'iPhone to the right', desktopSrc: 'iphone-right-desk.svg', tabletSrc: 'iphone-right-tab.svg' }
+    { id: 'left', alt: 'iPhone to the left', desktopSrc: IphoneLeftDesk, tabletSrc: IphoneLeftTab },
+    { id: 'mid', alt: 'iPhone in the middle', desktopSrc: IphoneMidDesk, tabletSrc: IphoneMidTab },
+    { id: 'right', alt: 'iPhone to the right', desktopSrc: IphoneRightDesk, tabletSrc: IphoneRightTab }
   ];
 
   return (
@@ -14,8 +20,8 @@ const HowItWorks = () => {
         <div id="phone-6">
           {images.map((img) => (
             <React.Fragment key={img.id}>
-              <img id={`iphone-${img.id}-desk`} src={`images/${img.desktopSrc}`} alt={`${img.alt} (desktop)`} />
-              <img id={`iphone-${img.id}-tab`} src={`images/${img.tabletSrc}`} alt={`${img.alt} (tablet)`} />
+              <img id={`iphone-${img.id}-desk`} src={img.desktopSrc} alt={`${img.alt} (desktop)`} />
+              <img id={`iphone-${img.id}-tab`} src={img.tabletSrc} alt={`${img.alt} (tablet)`} />
             </React.Fragment>
           ))}
         </div>

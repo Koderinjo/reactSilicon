@@ -1,19 +1,26 @@
 import React from 'react';
+import IphoneCard from '../assets/images/iphone-card.svg';
+import IconCard from '../assets/images/icon-card.svg';
+import IconShield from '../assets/images/icon-shield.svg';
+import IconStats from '../assets/images/icon-stats.svg';
+import IconSupport from '../assets/images/icon-support.svg';
+import IconCash from '../assets/images/icon-cash.svg';
+import IconEmoji from '../assets/images/icon-emoji.svg';
 
 const features = [
-  { img: 'icon-card.svg', title: 'Easy Payments', description: 'Id mollis consectetur congue egestas.' },
-  { img: 'icon-shield.svg', title: 'Data Security', description: 'Augue pulvinar justo, fermentum.' },
-  { img: 'icon-stats.svg', title: 'Cost Statistics', description: 'Mattis urna ultricies non amet.' },
-  { img: 'icon-support.svg', title: 'Support 24/7', description: 'A elementum, imperdiet enim.' },
-  { img: 'icon-cash.svg', title: 'Regular Cashback', description: 'Sit facilisis dolor arcu.' },
-  { img: 'icon-emoji.svg', title: 'Top Standards', description: 'Faucibus cursus maecenas.' }
+  { img: IconCard, title: 'Easy Payments', description: 'Id mollis consectetur congue egestas.' },
+  { img: IconShield, title: 'Data Security', description: 'Augue pulvinar justo, fermentum.' },
+  { img: IconStats, title: 'Cost Statistics', description: 'Mattis urna ultricies non amet.' },
+  { img: IconSupport, title: 'Support 24/7', description: 'A elementum, imperdiet enim.' },
+  { img: IconCash, title: 'Regular Cashback', description: 'Sit facilisis dolor arcu.' },
+  { img: IconEmoji, title: 'Top Standards', description: 'Faucibus cursus maecenas.' }
 ];
 
 const AppFeatures = () => (
   <section id="app-features">
     <div className="container">
       <div id="image">
-        <img src="/images/iphone-card.svg" alt="Iphone + Card" />
+        <img src={IphoneCard} alt="Iphone + Card" />
       </div>
       <div>
         <h1>App Features</h1>
@@ -23,7 +30,7 @@ const AppFeatures = () => (
         {features.map((feature, index) => (
           <div key={index} className="feature-item">
             <div className="icon-box">
-              <img src={`/images/${feature.img}`} alt={`Icon ${feature.title}`} />
+              <img src={feature.img} alt={`Icon ${feature.title}`} />
             </div>
             <div className="feature-text">
               <h5>{feature.title}</h5>

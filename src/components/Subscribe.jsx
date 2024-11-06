@@ -1,11 +1,12 @@
 import React from 'react';
+import Notification from '../assets/images/notification.svg';
 
 const Subscribe = () => (
-  <section id="subscribe">
+  <section id="Subscribe">
     <div className="container">
       <div className="background-card">
         <div id="bell">
-          <img src="/images/notification.svg" alt="Notification Bell" />
+          <img src={Notification} alt="Notification Bell" />
         </div>
         <div className="sub-text">
           <h2>Subscribe to our newsletter</h2>

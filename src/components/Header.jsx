@@ -1,5 +1,8 @@
 import React, { useContext } from 'react';
 import { DarkModeContext } from '../App';
+import SililogoDark from '../assets/images/sililogo-dark.svg'
+import SililogoLight from '../assets/images/sililogo.svg'
+
 
 const Header = () => {
   const { isDarkMode, setIsDarkMode } = useContext(DarkModeContext);
@@ -8,7 +11,7 @@ const Header = () => {
     <header>
       <div className="container">
         <a id="sililogo" href="index.html">
-          <img src={isDarkMode ? 'images/sililogo-dark.svg' : 'images/sililogo.svg'} alt="Silicon Logo" />
+          <img src={isDarkMode ? SililogoDark : SililogoLight} alt="Silicon Logo" />
         </a>
         <nav id="main-menu" className="navbar">
           <a className="nav-link" id="features" href="#">Features</a>
