@@ -1,9 +1,9 @@
-// components/FAQ.js
+
 import React, { useContext } from 'react';
 import { DarkModeContext } from '../App';
 import AccordionItem from './AccordionItem';
 
-// Import images from src/assets
+
 import IconBoxPhoneDark from '../assets/images/icon-box-phone-dark.svg';
 import IconBoxPhoneLight from '../assets/images/icon-box-phone.svg';
 import IconBoxMessageDark from '../assets/images/icon-box-message-dark.svg';
