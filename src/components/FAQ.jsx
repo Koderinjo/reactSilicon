@@ -1,7 +1,8 @@
-
+// FAQ.jsx
 import React, { useContext } from 'react';
 import { DarkModeContext } from '../App';
-import AccordionItem from './AccordionItem';
+import FAQList from './FAQList';
+
 
 
 import IconBoxPhoneDark from '../assets/images/icon-box-phone-dark.svg';
@@ -12,15 +13,6 @@ import IconBoxPhoneTabletDark from '../assets/images/icon-box-phone-tablet-dark.
 import IconBoxPhoneTabletLight from '../assets/images/icon-box-phone-tablet.svg';
 import IconBoxMessageTabletDark from '../assets/images/icon-box-message-tablet-dark.svg';
 import IconBoxMessageTabletLight from '../assets/images/icon-box-message-tablet.svg';
-
-const faqData = [
-  { title: "Is any of my personal information stored in the App?", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
-  { title: "What formats can I download my transaction history in?", content: "Soluta perspiciatis amet corrupti omnis eaque." },
-  { title: "Can I schedule future transfers?", content: "Nunc duis id aenean gravida tincidunt eu." },
-  { title: "When can I use Banking App services?", content: "Lorem, ipsum dolor sit amet consectetur adipisicing elit." },
-  { title: "Can I create my own password that is easy for me to remember?", content: "Lorem, ipsum dolor sit amet consectetur adipisicing elit." },
-  { title: "What happens if I forget or lose my password?", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit." }
-];
 
 const FAQ = () => {
   const { isDarkMode } = useContext(DarkModeContext);
@@ -53,11 +45,7 @@ const FAQ = () => {
           </div>
         </div>
         
-        <div className="accordion-container">
-          {faqData.map((faq, index) => (
-            <AccordionItem key={index} title={faq.title} content={faq.content} />
-          ))}
-        </div>
+        <FAQList />
 
         <div className="contact-boxes-tablet">
           <div id="icon-box-phone-tablet">
