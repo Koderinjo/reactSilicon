@@ -1462,9 +1462,7 @@ margin-bottom: 2.5rem;
         }
 
     }
-      
-    
-      
+        
       .error-message {
         position: absolute;
         top: 96%; 
@@ -1484,4 +1482,77 @@ margin-bottom: 2.5rem;
         box-sizing: border-box;
       }
       
+      /* Testimonials */
+
+      #testimonialsHeading {
+        margin-right: 0rem;
+      }
+
+      .review-card {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 416px;
+        height: 350px;
+        margin: 1rem;
+        position: relative;
+      }
+
+      .quotes-icon {
+        position: absolute;
+        top: -30px;
+        left: 10px;
+      }
       
+      .stars {
+        color: #ffcc00;
+        font-size: 20px;
+        margin-bottom: 1.5rem;
+        margin-top: 2rem;
+      }
+      
+      .comment {
+        font-size: 18px;
+        color: var(--color-body);
+        line-height: 1.5;
+      }
+      
+      .user-info {
+        display: flex;
+        align-items: center;
+        margin-top: 2rem;
+      }
+      
+      .avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+      
+      .user-details {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .author {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+      }
+      
+      .job-role {
+        font-size: 14px;
+        color: #666;
+      }
+      
+      .testimonials {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0px;
+      }
+
+      
+     
