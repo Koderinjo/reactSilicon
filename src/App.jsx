@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import Brands from './components/Brands';
@@ -9,7 +10,7 @@ import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import Subscribe from './components/Subscribe';
 import Footer from './components/Footer';
-
+import ContactPage from './components/ContactPage';
 
 export const DarkModeContext = createContext();
 
@@ -22,20 +23,38 @@ function App() {
 
   return (
     <DarkModeContext.Provider value={{ isDarkMode, setIsDarkMode }}>
-      <div className="wrapper">
-        <Header />
-        <main>
-          <HeroSection />
-          <Brands />
-          <AppFeatures />
-          <HowItWorks />
-          <DesktopSection />
-          <Testimonials />
-          <FAQ />
-          <Subscribe />
-        </main>
-        <Footer />
-      </div>
+      <Router>
+        <div className="wrapper">
+          <Header />
+          <main>
+            <Routes>
+              {/* Home Page Route */}
+              <Route
+                path="/"
+                element={
+                  <>
+                    <HeroSection />
+                    <Brands />
+                    <AppFeatures />
+                    <HowItWorks />
+                    <DesktopSection />
+                    <Testimonials />
+                    <FAQ />
+                    <Subscribe />
+                  </>
+                }
+              />
+
+              {/* Contact Us Page Route */}
+              <Route path="/contact" element={<ContactPage />} />
+
+              {/* Fallback Route for Undefined Paths */}
+              <Route path="*" element={<HeroSection />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
     </DarkModeContext.Provider>
   );
 }

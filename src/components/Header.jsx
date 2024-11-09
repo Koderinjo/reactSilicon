@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { DarkModeContext } from '../App';
-import SililogoDark from '../assets/images/sililogo-dark.svg'
-import SililogoLight from '../assets/images/sililogo.svg'
-
+import SililogoDark from '../assets/images/sililogo-dark.svg';
+import SililogoLight from '../assets/images/sililogo.svg';
 
 const Header = () => {
   const { isDarkMode, setIsDarkMode } = useContext(DarkModeContext);
@@ -10,23 +10,29 @@ const Header = () => {
   return (
     <header>
       <div className="container">
-        <a id="sililogo" href="index.html">
+        <Link id="sililogo" to="/">
           <img src={isDarkMode ? SililogoDark : SililogoLight} alt="Silicon Logo" />
-        </a>
+        </Link>
         <nav id="main-menu" className="navbar">
-          <a className="nav-link" id="features" href="#">Features</a>
+          <Link className="nav-link" id="features" to="/">Features</Link>
+          <Link className="nav-link" id="contact" to="/contact">Contact</Link>
         </nav>
         <div id="darkmode-toggle-switch" className="btn-toggle-switch">
           <span className="label">Dark mode</span>
           <label htmlFor="darkmode-switch" className="toggle-switch">
-            <input id="darkmode-switch" type="checkbox" checked={isDarkMode} onChange={() => setIsDarkMode(!isDarkMode)} />
+            <input
+              id="darkmode-switch"
+              type="checkbox"
+              checked={isDarkMode}
+              onChange={() => setIsDarkMode(!isDarkMode)}
+            />
             <span className="slider round"></span>
           </label>
         </div>
-        <a id="signin" href="#" className="btn-primary">
+        <Link id="signin" to="/signin" className="btn-primary">
           <i className="fa-light fa-user"></i>
           <span>Sign in / up</span>
-        </a>
+        </Link>
         <button className="btn-menu" aria-label="Menu Button">
           <i className="fa-sharp fa-regular fa-bars"></i>
         </button>
