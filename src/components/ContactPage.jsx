@@ -7,7 +7,7 @@ import Footer from './Footer';
 
 const ContactPage = () => (
   <div className="contact-page">
-    <div className="content">
+    <div className="container">
       <ContactInfo />
     </div>
     {/* <MapSection /> */}

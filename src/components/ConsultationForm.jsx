@@ -14,9 +14,9 @@ const ConsultationForm = () => (
       <label htmlFor="specialist">Specialist</label>
       <select id="specialist">
         <option value="">Select a specialist</option>
-        <option value="doctor">Doctor</option>
-        <option value="nurse">Nurse</option>
-        <option value="therapist">Therapist</option>
+        <option value="doctor">Noob</option>
+        <option value="nurse">Semi-Noob</option>
+        <option value="therapist">H4xx0r</option>
       </select>
 
       <button type="submit">Make an appointment</button>
