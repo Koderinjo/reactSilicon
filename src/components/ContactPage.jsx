@@ -4,6 +4,7 @@ import ConsultationForm from './ConsultationForm';
 import MapSection from './MapSection';
 import MedicalCenters from './MedicalCenters';
 import Footer from './Footer';
+import Breadcrumb from'./Breadcrumb';
 
 const ContactPage = () => (
   <div className="contact-page">

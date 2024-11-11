@@ -1,21 +1,27 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { DarkModeContext } from '../App';
 import SililogoDark from '../assets/images/sililogo-dark.svg';
 import SililogoLight from '../assets/images/sililogo.svg';
 
 const Header = () => {
   const { isDarkMode, setIsDarkMode } = useContext(DarkModeContext);
+  const location = useLocation();
+  const isContactPage = location.pathname === '/contact';
 
   return (
-    <header>
+    <header className={`header ${isContactPage ? 'contact-header' : ''}`}>
       <div className="container">
         <Link id="sililogo" to="/">
           <img src={isDarkMode ? SililogoDark : SililogoLight} alt="Silicon Logo" />
         </Link>
         <nav id="main-menu" className="navbar">
-          <Link className="nav-link" id="features" to="/">Features</Link>
-          <Link className="nav-link" id="contact" to="/contact">Contact</Link>
+          <Link className="nav-link" id="features" to="/">
+            Features
+          </Link>
+          <Link className="nav-link" id="contact" to="/contact">
+            Contact
+          </Link>
         </nav>
         <div id="darkmode-toggle-switch" className="btn-toggle-switch">
           <span className="label">Dark mode</span>

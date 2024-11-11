@@ -55,10 +55,12 @@
 }
 
 header {
-   padding-top: 4px;
-   
-   
+   padding-top: 4px;  
 }
+
+.contact-header {
+    background-color: var(--color-lightBG);
+  }
 
 body {
     font-family: "Manrope", sans-serif;
@@ -1556,50 +1558,61 @@ margin-bottom: 2.5rem;
 
       
 
-      
-      
-     
-.consultation-form-container {
-    background-color: var(--color-white);
-    padding: 2rem;
-    width: 400px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .consultation-form-container h2 {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--color-heading);
-    margin-bottom: 1.5rem;
-  }
   
   .consultation-form {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 0rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 2rem;
   }
 
   #specialist {
     margin-bottom: 10rem;
   }
+
+  #email, #name {
+    margin-bottom: 2rem;
+  }
+
+  .consultation-form-container {
+    grid-area: consultform;
+    background-color: var(--color-white);
+    padding: 3rem;
+    gap: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+    margin-bottom: -5rem;
+    margin-top: 3.5rem;
+    z-index: 1;
+    position: relative;
+    width: 636px;
+    height: 718px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    h2 {
+        font-weight: 800;
+        font-size: 32px;
+        margin-bottom: 3rem;
+    }
+  }
   
   .consultation-form label {
     font-size: 14px;
-    color: var(--color-body);
+    color: var(--color-heading);
     font-weight: 500;
     margin-bottom: 0.5rem;
-    margin-top: 2rem;
+    margin-top: 0rem;
   }
   
   .consultation-form input,
   .consultation-form select {
     width: 100%;
-    padding: 0.75rem;
+    padding: 0.75rem; 
     font-size: 16px;
     color: var(white);
     background-color: var(--color-white);
@@ -1611,6 +1624,7 @@ margin-bottom: 2.5rem;
   
   .consultation-form input::placeholder {
     color: var(--color-placehold);
+    
   }
   
   .consultation-form button {
@@ -1646,22 +1660,11 @@ margin-bottom: 2.5rem;
  }
  .contactheading {
     grid-area: contactheading;
+    
+    h1 {
+        font-weight: 800;
+    }
  }
-
- .consultation-form-container {
-    grid-area: consultform;
-    background-color: var(--color-white);
-    padding: 3rem;
-    gap: 2rem;
-    width: 400px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
-    margin-bottom: -5rem; /* Negative margin to move it upwards */
-    z-index: 1; /* Bring it on top of the blue background */
-    position: relative;
-    width: 636px;
-    height: 718px;
-  }
 
  .contact-info {
     display: grid;
@@ -1673,7 +1676,6 @@ margin-bottom: 2.5rem;
     "careers consultform";
     column-gap: 5rem;
     max-width: 1320px;
-    /* background-color: var(--color-lightBG); */
   }
   
   .contact-card {
@@ -1697,6 +1699,7 @@ margin-bottom: 2.5rem;
         font-weight: 600;
         
     }
+
     a:hover {
         color: var(--color-primary);
         text-decoration: underline;
@@ -1724,3 +1727,32 @@ margin-bottom: 2.5rem;
     height: 1px;
   }
   
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: red;
+    margin-bottom: 2rem;
+  }
+  
+  .breadcrumb a {
+    text-decoration: none;
+    color: var(--color-muted); 
+  }
+  
+  .breadcrumb-active {
+    font-weight: bold;
+    color: var(--color-primary); 
+  }
+  
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url('./assets/images/arrow.svg') no-repeat;
+    background-position: calc(100% - 0.75rem);
+   
+}
+

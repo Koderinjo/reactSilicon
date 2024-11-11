@@ -1,10 +1,12 @@
 import React from 'react';
 import ConsultationForm from './ConsultationForm';
 import { FaEnvelope, FaUsers } from 'react-icons/fa';
+import Breadcrumb from './Breadcrumb'
 
 const ContactInfo = () => (
   <div className="contact-info">
     <div className="contactheading">
+    <Breadcrumb />
       <h1>Contact Us</h1>
     </div>
     <div className="contact-card email-us">
@@ -23,7 +25,7 @@ const ContactInfo = () => (
       </div>
       <div className="careers-text">
       <h3>Careers</h3>
-      <p>Join our team! Check out our open positions.</p>
+      <p>Sit ac ipsum leo lorem magna nunc mattis maecenas non vestibulum.</p>
       <a href="#">Send an application →</a>
       </div>
     </div>
