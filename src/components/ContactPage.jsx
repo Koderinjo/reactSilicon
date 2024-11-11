@@ -10,9 +10,9 @@ const ContactPage = () => (
   <div className="contact-page">
     <div className="container">
       <ContactInfo />
-    </div>
-    {/* <MapSection /> */}
-    {/* <MedicalCenters /> */}
+    </div >
+    <MapSection />
+    <MedicalCenters />
   </div>
 );
 
