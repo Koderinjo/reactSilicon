@@ -1559,7 +1559,7 @@ margin-bottom: 2.5rem;
     
     
     
-.contact-page {
+.contact-us-page {
   background-color: var(--color-lightBG);
 }
 
@@ -1660,7 +1660,6 @@ margin-bottom: 2.5rem;
   gap: 1rem;
 }
 
-/* Form Labels */
 .consultation-form label {
   font-size: 14px;
   color: var(--color-heading);
@@ -1714,12 +1713,6 @@ select {
   background-position: calc(100% - 0.75rem);
 }
 
-
-
-
-
-
-
 .breadcrumb {
     display: flex;
     align-items: center;
@@ -1746,10 +1739,52 @@ select {
     -moz-appearance: none;
     appearance: none;
     background: url('./assets/images/arrow.svg') no-repeat;
-    background-position: calc(100% - 0.75rem);
-   
+    background-position: calc(100% - 0.75rem);  
 }
 
-.map-section {
-    width: 20vw;
-}
+
+.map-page {
+    background-color: var(--color-white);
+    padding-top: 10rem;
+  }
+  
+  .container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .map-page .container {
+    margin-bottom: 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "map centers";
+  }
+  
+  .map-section {
+    grid-area: map;
+    margin-left: 5rem;
+  }
+  
+  .medical-centers {
+    grid-area: centers;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  .center {
+    margin-left: 5rem;
+
+    h3 {
+        font-size: 24px;
+        font-weight: 800;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        margin-bottom: .8rem;
+    }
+  }

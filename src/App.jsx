@@ -28,10 +28,7 @@ function App() {
           <Header />
           <main>
             <Routes>
-              {/* Home Page Route */}
-              <Route
-                path="/"
-                element={
+              <Route path="/" element={
                   <>
                     <HeroSection />
                     <Brands />
@@ -45,10 +42,10 @@ function App() {
                 }
               />
 
-              {/* Contact Us Page Route */}
+              
               <Route path="/contact" element={<ContactPage />} />
 
-              {/* Fallback Route for Undefined Paths */}
+              
               <Route path="*" element={<HeroSection />} />
             </Routes>
           </main>

@@ -16,13 +16,12 @@ L.Icon.Default.mergeOptions({
 
 const MapSection = () => (
   <section className="map-section">
-    <h2>Our Locations</h2>
-    <MapContainer center={[51.505, -0.09]} zoom={13} style={{ height: '400px', width: '100%' }}>
+    <MapContainer center={[37.154362177237914, -83.7619533079481]} zoom={16} style={{ height: '400px', width: '100%' }}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
-      <Marker position={[51.505, -0.09]}>
+      <Marker position={[37.154362177237914, -83.7619533079481]}>
         <Popup>Our main office</Popup>
       </Marker>
     </MapContainer>
