@@ -16,6 +16,7 @@
     --color-btn-circle: #ffffff;
     --color-paragraph-secondary: #585C7B;
     --color-accordion-secondary: #fff;
+    --color-contact-bg: #fff;
 
     /* Brand Colors */
     --color-primary: #6366F1;
@@ -81,6 +82,8 @@ body.dark {
     --color-divider: rgba(255, 255, 255, 0.15);
     --color-white: #131022;
     --color-accordion-secondary: #151822;
+    --color-contact-bg:rgba(99, 102, 241, 0.08);
+    --color-placehold: #b4b7c97e;
 
     --shadow-S: 0px 4.4px 12px -1px rgba(254, 254, 254, 0.06), 0px 2px 6.4px -1px rgba(255, 255, 255, 0.03);
     --shadow-M: 0px 4.4px 20px rgba(255, 255, 255, 0.05), 0px 4px 9px rgba(255, 255, 255, 0.03);
@@ -1625,13 +1628,13 @@ margin-bottom: 2.5rem;
 .contact-icon {
   font-size: 3rem;
   color: var(--color-primary);
-  background-color: var(--color-white);
+  background-color: var(--color-contact-bg);
   padding: 0.5rem;
   border-radius: 50%;
 }
 
 .consultation-form-container {
-  background-color: var(--color-white);
+  background-color: var(--color-contact-bg);
   padding: 3rem;
   gap: 2rem;
   border-radius: 8px;
@@ -1641,10 +1644,13 @@ margin-bottom: 2.5rem;
   z-index: 1;
   position: relative;
   width: 100%; 
-  /* max-width: 636px; */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+input {
+    color: var(--color-heading);
 }
 
 .consultation-form-container h2 {
@@ -1682,8 +1688,14 @@ margin-bottom: 2.5rem;
   color: var(--color-placehold);
 }
 
+
+
 #specialist {
   margin-bottom: 5rem;
+}
+
+.custom-select {
+    color: var(--color-heading);
 }
 
 
@@ -1704,6 +1716,19 @@ margin-bottom: 2.5rem;
 .consultation-form button:hover {
   background-color: var(--color-muted);
 }
+
+
+.success {
+    color: green;
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+
+.error {
+    color: red;
+  }
+  
+  
 
 select {
   -webkit-appearance: none;
@@ -1766,6 +1791,10 @@ select {
   .map-section {
     grid-area: map;
   }
+
+  .leaflet-container {
+    border-radius: 8px;
+}
   
   .medical-centers {
     grid-area: centers;
@@ -1795,10 +1824,6 @@ select {
         color: var(--color-primary);
       }
     }
-
-    .opening-hours strong {
-        color: var(--color-navigation);
-      }
   }
   
 .social-media {
