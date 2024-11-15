@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { DarkModeContext } from '../App';
 import SililogoDark from '../assets/images/sililogo-dark.svg';
 import SililogoLight from '../assets/images/sililogo.svg';
+import MobileMenu from './MobileMenu';
 
 const Header = () => {
   const { isDarkMode, setIsDarkMode } = useContext(DarkModeContext);
@@ -39,9 +40,7 @@ const Header = () => {
           <i className="fa-light fa-user"></i>
           <span>Sign in / up</span>
         </Link>
-        <button className="btn-menu" aria-label="Menu Button">
-          <i className="fa-sharp fa-regular fa-bars"></i>
-        </button>
+        <MobileMenu />
       </div>
     </header>
   );

@@ -1,4 +1,3 @@
-// ContactInfo.jsx
 import React from 'react';
 import ConsultationForm from './ConsultationForm';
 import { FaEnvelope, FaUsers } from 'react-icons/fa';
