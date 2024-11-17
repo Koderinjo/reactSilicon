@@ -3,36 +3,28 @@ import Notification from '../assets/images/notification.svg';
 
 const Subscribe = () => {
   const [email, setEmail] = useState('');
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  const [message, setMessage] = useState({ type: '', text: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const validateEmail = () => {
+  const validateEmail = (email) => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-      setError('Please enter a valid email address.');
-
-      setTimeout(() => {
-        setError('');
-      }, 2500);
-    } else {
-      setError('');
-      
-    }
+    return emailPattern.test(email);
   };
 
   const handleInputChange = (e) => {
     setEmail(e.target.value);
-  };
-
-  const handleInputFocus = () => {
-    if (error) setError('');
-    if (success) setSuccess('');
+    if (message.text) {
+      setMessage({ type: '', text: '' });
+    }
   };
 
   const handleSubscribe = async () => {
-    validateEmail();
-    if (error || !email) return;
+    if (!validateEmail(email)) {
+      setMessage({ type: 'error', text: 'Please enter a valid email address.' });
+      return;
+    }
 
+    setIsSubmitting(true);
     try {
       const response = await fetch('https://win24-assignment.azurewebsites.net/api/forms/subscribe', {
         method: 'POST',
@@ -43,18 +35,19 @@ const Subscribe = () => {
       });
 
       if (response.ok) {
-        setSuccess('You are now subscribed!');
+        setMessage({ type: 'success', text: 'You are now subscribed!' });
         setEmail('');
-
-        setTimeout(() => {
-          setSuccess('');
-        }, 2500);
       } else {
         const errorData = await response.json();
-        setError(errorData.message || 'An error occurred during subscription.');
+        setMessage({
+          type: 'error',
+          text: errorData.message || 'An error occurred during subscription.',
+        });
       }
     } catch (err) {
-      setError('An error occurred during subscription.');
+      setMessage({ type: 'error', text: 'An error occurred during subscription.' });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -81,14 +74,17 @@ const Subscribe = () => {
               className="subscribe-input"
               value={email}
               onChange={handleInputChange}
-              onBlur={validateEmail}
-              onFocus={handleInputFocus}
             />
-            <button className="subscribe-button" onClick={handleSubscribe}>
-              Subscribe
+            <button
+              className="subscribe-button"
+              onClick={handleSubscribe}
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Subscribing...' : 'Subscribe'}
             </button>
-            {error && <div className="error-message">{error}</div>}
-            {success && <div className="success-message">{success}</div>}
+            {message.text && (
+              <div className={`${message.type}-message`}>{message.text}</div>
+            )}
           </div>
         </div>
       </div>

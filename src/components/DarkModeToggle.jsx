@@ -1,20 +1,11 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useContext } from 'react';
+import { DarkModeContext } from '../App';
 
 const DarkModeToggle = () => {
-  const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    
-    if (darkMode) {
-      document.body.classList.add('dark');
-    } else {
-      document.body.classList.remove('dark');
-    }
-  }, [darkMode]);
+  const { isDarkMode, setIsDarkMode } = useContext(DarkModeContext);
 
   const handleToggle = () => {
-    setDarkMode(!darkMode);
+    setIsDarkMode(!isDarkMode);
   };
 
   return (
@@ -24,7 +15,7 @@ const DarkModeToggle = () => {
         <input
           id="darkmode-switch"
           type="checkbox"
-          checked={darkMode}
+          checked={isDarkMode}
           onChange={handleToggle}
         />
         <span className="slider round"></span>

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { DarkModeContext } from '../App';
-import ServiceList from './TestimonialsList';
-import QuotesIcon from '../assets/images/quotes.svg'; // Import the quotes icon
+import TestimonialsList from './TestimonialsList';
+import QuotesIcon from '../assets/images/quotes.svg';
 
 const Testimonials = () => {
   const { isDarkMode } = useContext(DarkModeContext);
@@ -11,7 +11,7 @@ const Testimonials = () => {
       <div className="container">
         <div id="clients">
           <h1 id="testimonialsHeading">Clients are Loving Our App</h1>
-          <ServiceList quotesIcon={QuotesIcon} /> {/* Pass icon to ServiceList */}
+          <TestimonialsList quotesIcon={QuotesIcon} />
         </div>
       </div>
     </section>

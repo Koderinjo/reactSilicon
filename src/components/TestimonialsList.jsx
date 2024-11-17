@@ -3,15 +3,36 @@ import TestimonialsItem from './TestimonialsItem';
 
 const TestimonialsList = ({ quotesIcon }) => {
   const [testimonialsItems, setTestimonialsItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState('');
 
   useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch('https://win24-assignment.azurewebsites.net/api/testimonials');
-      const data = await res.json();
-      setTestimonialsItems(data);
+    const fetchTestimonialsData = async () => {
+      try {
+        const res = await fetch('https://win24-assignment.azurewebsites.net/api/testimonials');
+        if (!res.ok) {
+          throw new Error('Failed to fetch testimonials');
+        }
+        const data = await res.json();
+        setTestimonialsItems(data);
+      } catch (error) {
+        console.error('Error fetching testimonials data:', error);
+        setError('Unable to load testimonials at this time.');
+      } finally {
+        setIsLoading(false);
+      }
     };
-    fetchData();
+
+    fetchTestimonialsData();
   }, []);
+
+  if (isLoading) {
+    return <p>Loading testimonials...</p>;
+  }
+
+  if (error) {
+    return <p className="error">{error}</p>;
+  }
 
   return (
     <div className="testimonials">

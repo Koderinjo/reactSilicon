@@ -1,4 +1,3 @@
-// FAQ.jsx
 import React, { useContext } from 'react';
 import { DarkModeContext } from '../App';
 import FAQList from './FAQList';

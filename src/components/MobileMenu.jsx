@@ -32,7 +32,7 @@ const MobileMenu = () => {
     <div className="menu-button" ref={menuRef}>
       <button
         className="btn-menu"
-        aria-label="Menu Button"
+        aria-label="Toggle mobile menu"
         onClick={toggleMenu}
       >
         <i className="fa-sharp fa-regular fa-bars"></i>

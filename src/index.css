@@ -17,6 +17,7 @@
     --color-paragraph-secondary: #585C7B;
     --color-accordion-secondary: #fff;
     --color-contact-bg: #fff;
+    --color-review-card: #fff;
 
     /* Brand Colors */
     --color-primary: #6366F1;
@@ -40,6 +41,7 @@
     /* Miscellaneous*/
     --container-padding: 1rem;
     --transition-time: all 0.2s;
+
     
 
     
@@ -84,6 +86,7 @@ body.dark {
     --color-accordion-secondary: #151822;
     --color-contact-bg:rgba(99, 102, 241, 0.08);
     --color-placehold: #b4b7c97e;
+    --color-review-card: #ffffff04;
 
     --shadow-S: 0px 4.4px 12px -1px rgba(254, 254, 254, 0.06), 0px 2px 6.4px -1px rgba(255, 255, 255, 0.03);
     --shadow-M: 0px 4.4px 20px rgba(255, 255, 255, 0.05), 0px 4px 9px rgba(255, 255, 255, 0.03);
@@ -1022,7 +1025,7 @@ display: none;
         }
 
         .review-card {
-        background-color: #ffffff;
+        background-color: var(--color-review-card);
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         padding: 20px;
@@ -1072,12 +1075,12 @@ display: none;
         .author {
         font-size: 16px;
         font-weight: bold;
-        color: #333;
+        color: var(--color-heading);
         }
         
         .job-role {
         font-size: 14px;
-        color: #666;
+        color: var(--color-muted);
         }
         
         .testimonials {
@@ -1951,6 +1954,9 @@ select {
   background-color: var(--hover-background-color, #f0f0f0);
 }
 
+author {
+    width: 20rem;
+}
 
 
   

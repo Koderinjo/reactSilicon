@@ -5,7 +5,7 @@ const ConsultationForm = () => {
   const [email, setEmail] = useState('');
   const [specialist, setSpecialist] = useState('');
   const [errors, setErrors] = useState({});
-  const [successMessage, setSuccessMessage] = useState('');
+  const [message, setMessage] = useState({ type: '', text: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateName = (name) => {
@@ -17,13 +17,15 @@ const ConsultationForm = () => {
   };
 
   const validateEmail = (email) => {
-    const re = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = {};
+
+    setMessage({ type: '', text: '' });
 
     if (!name) {
       newErrors.name = 'Full name is required';
@@ -60,21 +62,20 @@ const ConsultationForm = () => {
         });
 
         if (response.ok) {
-          setSuccessMessage('Your appointment request has been submitted!');
+          setMessage({ type: 'success', text: 'Your appointment request has been submitted!' });
           setName('');
           setEmail('');
           setSpecialist('');
           setErrors({});
-
           setTimeout(() => {
-            setSuccessMessage('');
+            setMessage({ type: '', text: '' });
           }, 2500);
         } else {
           const errorData = await response.json();
-          setErrors({ submit: errorData.message || 'Submission failed' });
+          setMessage({ type: 'error', text: errorData.message || 'Submission failed' });
         }
       } catch (error) {
-        setErrors({ submit: 'An error occurred. Please try again.' });
+        setMessage({ type: 'error', text: 'An error occurred. Please try again.' });
       } finally {
         setIsSubmitting(false);
       }
@@ -83,11 +84,7 @@ const ConsultationForm = () => {
 
   return (
     <section className="consultation-form-container">
-      <form
-        className="consultation-form"
-        onSubmit={handleSubmit}
-        noValidate
-      >
+      <form className="consultation-form" onSubmit={handleSubmit} noValidate>
         <div>
           <h2>Get Online Consultation</h2>
         </div>
@@ -97,8 +94,13 @@ const ConsultationForm = () => {
           type="text"
           id="name"
           value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder='Jack Smith'
+          onChange={(e) => {
+            setName(e.target.value);
+            if (errors.name) {
+              setErrors({ ...errors, name: '' });
+            }
+          }}
+          placeholder="Jack Smith"
         />
         {errors.name && <p className="error">{errors.name}</p>}
 
@@ -107,8 +109,13 @@ const ConsultationForm = () => {
           type="email"
           id="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder='example@email.com'
+          onChange={(e) => {
+            setEmail(e.target.value);
+            if (errors.email) {
+              setErrors({ ...errors, email: '' });
+            }
+          }}
+          placeholder="example@email.com"
         />
         {errors.email && <p className="error">{errors.email}</p>}
 
@@ -118,7 +125,12 @@ const ConsultationForm = () => {
             id="specialist"
             className="custom-select"
             value={specialist}
-            onChange={(e) => setSpecialist(e.target.value)}
+            onChange={(e) => {
+              setSpecialist(e.target.value);
+              if (errors.specialist) {
+                setErrors({ ...errors, specialist: '' });
+              }
+            }}
           >
             <option value="">Select a specialist</option>
             <option value="doctor">Doctor</option>
@@ -128,8 +140,7 @@ const ConsultationForm = () => {
         </div>
         {errors.specialist && <p className="error">{errors.specialist}</p>}
 
-        {errors.submit && <p className="error">{errors.submit}</p>}
-        {successMessage && <p className="success">{successMessage}</p>}
+        {message.text && <p className={message.type === 'error' ? 'error' : 'success'}>{message.text}</p>}
 
         <button type="submit" disabled={isSubmitting}>
           {isSubmitting ? 'Submitting...' : 'Make an appointment'}
