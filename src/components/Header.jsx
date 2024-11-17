@@ -18,7 +18,10 @@ const Header = () => {
           <img src={isDarkMode ? SililogoDark : SililogoLight} alt="Silicon Logo" />
         </Link>
         <nav id="main-menu" className="navbar">
-          <Link className="nav-link" id="features" to="/">
+          <Link className="nav-link" id="home" to="/">
+            Home
+          </Link>
+          <Link className="nav-link" id="features" to="">
             Features
           </Link>
           <Link className="nav-link" id="contact" to="/contact">

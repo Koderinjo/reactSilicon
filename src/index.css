@@ -104,8 +104,10 @@ body.dark {
 }
 
 #features {
-    margin-right: 2rem;
-    
+    margin-right: 2rem;   
+}
+#home {
+    margin-right: 2rem;   
 }
 
 .wrapper {
