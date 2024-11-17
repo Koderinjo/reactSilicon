@@ -5,7 +5,6 @@ import Breadcrumb from './Breadcrumb';
 
 const ContactInfo = () => (
   <div className="contact-info">
-    {/* Left Column */}
     <div className="left-column">
       <div className="contactheading">
         <Breadcrumb />
@@ -32,7 +31,6 @@ const ContactInfo = () => (
         </div>
       </div>
     </div>
-    {/* Right Column */}
     <div className="right-column">
       <ConsultationForm />
     </div>

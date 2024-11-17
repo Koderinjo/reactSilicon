@@ -10,7 +10,7 @@ const Breadcrumb = () => {
   return (
     <nav className="breadcrumb">
       <Link to="/">
-        <FontAwesomeIcon icon={faHome} /> Homepage
+        <FontAwesomeIcon icon={faHome} /> Home
       </Link>
       {pathnames.map((value, index) => {
         const to = `/${pathnames.slice(0, index + 1).join('/')}`;
