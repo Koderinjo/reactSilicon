@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
-import { DarkModeContext } from '../App';
-import TestimonialsList from './TestimonialsList';
-import QuotesIcon from '../assets/images/quotes.svg';
+import { useContext } from "react";
+import DarkModeContext from "../DarkModeContext";
+import TestimonialsList from "./TestimonialsList";
+import QuotesIcon from "../assets/images/quotes.svg";
 
 const Testimonials = () => {
-  const { isDarkMode } = useContext(DarkModeContext);
+  useContext(DarkModeContext);
 
   return (
     <section id="testimonials">

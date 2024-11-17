@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import Notification from '../assets/images/notification.svg';
+import { useState } from "react";
+import Notification from "../assets/images/notification.svg";
 
 const Subscribe = () => {
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState({ type: '', text: '' });
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState({ type: "", text: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateEmail = (email) => {
@@ -14,38 +14,47 @@ const Subscribe = () => {
   const handleInputChange = (e) => {
     setEmail(e.target.value);
     if (message.text) {
-      setMessage({ type: '', text: '' });
+      setMessage({ type: "", text: "" });
     }
   };
 
   const handleSubscribe = async () => {
     if (!validateEmail(email)) {
-      setMessage({ type: 'error', text: 'Please enter a valid email address.' });
+      setMessage({
+        type: "error",
+        text: "Please enter a valid email address.",
+      });
       return;
     }
 
     setIsSubmitting(true);
     try {
-      const response = await fetch('https://win24-assignment.azurewebsites.net/api/forms/subscribe', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        "https://win24-assignment.azurewebsites.net/api/forms/subscribe",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email }),
         },
-        body: JSON.stringify({ email }),
-      });
+      );
 
       if (response.ok) {
-        setMessage({ type: 'success', text: 'You are now subscribed!' });
-        setEmail('');
+        setMessage({ type: "success", text: "You are now subscribed!" });
+        setEmail("");
       } else {
         const errorData = await response.json();
         setMessage({
-          type: 'error',
-          text: errorData.message || 'An error occurred during subscription.',
+          type: "error",
+          text: errorData.message || "An error occurred during subscription.",
         });
       }
-    } catch (err) {
-      setMessage({ type: 'error', text: 'An error occurred during subscription.' });
+    } catch {
+      setMessage({
+        type: "error",
+        text: "An error occurred during subscription.",
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -62,7 +71,10 @@ const Subscribe = () => {
             <h2>Subscribe to our newsletter</h2>
           </div>
           <div className="sub-text-desktop">
-            <h4>Subscribe to our newsletter to stay informed about the latest updates</h4>
+            <h4>
+              Subscribe to our newsletter to stay informed about the latest
+              updates
+            </h4>
           </div>
           <div className="subscribe-container">
             <div className="icon-wrapper">
@@ -80,7 +92,7 @@ const Subscribe = () => {
               onClick={handleSubscribe}
               disabled={isSubmitting}
             >
-              {isSubmitting ? 'Subscribing...' : 'Subscribe'}
+              {isSubmitting ? "Subscribing..." : "Subscribe"}
             </button>
             {message.text && (
               <div className={`${message.type}-message`}>{message.text}</div>

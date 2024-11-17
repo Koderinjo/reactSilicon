@@ -1,24 +1,23 @@
-import React, { useState, useEffect, createContext } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-import Brands from './components/Brands';
-import AppFeatures from './components/AppFeatures';
-import HowItWorks from './components/HowItWorks';
-import DesktopSection from './components/DesktopSection';
-import Testimonials from './components/Testimonials';
-import FAQ from './components/FAQ';
-import Subscribe from './components/Subscribe';
-import Footer from './components/Footer';
-import ContactPage from './components/ContactPage';
-
-export const DarkModeContext = createContext();
+import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import HeroSection from "./components/HeroSection";
+import Brands from "./components/Brands";
+import AppFeatures from "./components/AppFeatures";
+import HowItWorks from "./components/HowItWorks";
+import DesktopSection from "./components/DesktopSection";
+import Testimonials from "./components/Testimonials";
+import FAQ from "./components/FAQ";
+import Subscribe from "./components/Subscribe";
+import Footer from "./components/Footer";
+import ContactPage from "./components/ContactPage";
+import DarkModeContext from "./DarkModeContext";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    document.body.classList.toggle('dark', isDarkMode);
+    document.body.classList.toggle("dark", isDarkMode);
   }, [isDarkMode]);
 
   return (
@@ -28,7 +27,9 @@ function App() {
           <Header />
           <main>
             <Routes>
-              <Route path="/" element={
+              <Route
+                path="/"
+                element={
                   <>
                     <HeroSection />
                     <Brands />
@@ -42,10 +43,7 @@ function App() {
                 }
               />
 
-              
               <Route path="/contact" element={<ContactPage />} />
-
-              
               <Route path="*" element={<HeroSection />} />
             </Routes>
           </main>

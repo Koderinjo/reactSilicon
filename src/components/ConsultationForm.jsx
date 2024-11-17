@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 
 const ConsultationForm = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [specialist, setSpecialist] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [specialist, setSpecialist] = useState("");
   const [errors, setErrors] = useState({});
-  const [message, setMessage] = useState({ type: '', text: '' });
+  const [message, setMessage] = useState({ type: "", text: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateName = (name) => {
     const re = /^[a-zA-Z\s'-]+$/;
     const isValidFormat = re.test(name);
     const isValidLength = name.trim().length >= 2;
-    const hasTwoWords = name.trim().split(' ').length >= 2;
+    const hasTwoWords = name.trim().split(" ").length >= 2;
     return isValidFormat && isValidLength && hasTwoWords;
   };
 
@@ -25,22 +25,22 @@ const ConsultationForm = () => {
     e.preventDefault();
     const newErrors = {};
 
-    setMessage({ type: '', text: '' });
+    setMessage({ type: "", text: "" });
 
     if (!name) {
-      newErrors.name = 'Full name is required';
+      newErrors.name = "Full name is required";
     } else if (!validateName(name)) {
-      newErrors.name = 'Please enter your full name (first and last name)';
+      newErrors.name = "Please enter your full name (first and last name)";
     }
 
     if (!email) {
-      newErrors.email = 'Email address is required';
+      newErrors.email = "Email address is required";
     } else if (!validateEmail(email)) {
-      newErrors.email = 'Invalid email address';
+      newErrors.email = "Invalid email address";
     }
 
     if (!specialist) {
-      newErrors.specialist = 'Please select a specialist';
+      newErrors.specialist = "Please select a specialist";
     }
 
     setErrors(newErrors);
@@ -48,34 +48,46 @@ const ConsultationForm = () => {
     if (Object.keys(newErrors).length === 0) {
       setIsSubmitting(true);
       try {
-        const response = await fetch('https://win24-assignment.azurewebsites.net/api/forms/contact', {
-          method: 'POST',
-          headers: {
-            'accept': '*/*',
-            'Content-Type': 'application/json',
+        const response = await fetch(
+          "https://win24-assignment.azurewebsites.net/api/forms/contact",
+          {
+            method: "POST",
+            headers: {
+              accept: "*/*",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              fullName: name,
+              email: email,
+              specialist: specialist,
+            }),
           },
-          body: JSON.stringify({
-            fullName: name,
-            email: email,
-            specialist: specialist,
-          }),
-        });
+        );
 
         if (response.ok) {
-          setMessage({ type: 'success', text: 'Your appointment request has been submitted!' });
-          setName('');
-          setEmail('');
-          setSpecialist('');
+          setMessage({
+            type: "success",
+            text: "Your appointment request has been submitted!",
+          });
+          setName("");
+          setEmail("");
+          setSpecialist("");
           setErrors({});
           setTimeout(() => {
-            setMessage({ type: '', text: '' });
+            setMessage({ type: "", text: "" });
           }, 2500);
         } else {
           const errorData = await response.json();
-          setMessage({ type: 'error', text: errorData.message || 'Submission failed' });
+          setMessage({
+            type: "error",
+            text: errorData.message || "Submission failed",
+          });
         }
-      } catch (error) {
-        setMessage({ type: 'error', text: 'An error occurred. Please try again.' });
+      } catch {
+        setMessage({
+          type: "error",
+          text: "An error occurred. Please try again.",
+        });
       } finally {
         setIsSubmitting(false);
       }
@@ -97,7 +109,7 @@ const ConsultationForm = () => {
           onChange={(e) => {
             setName(e.target.value);
             if (errors.name) {
-              setErrors({ ...errors, name: '' });
+              setErrors({ ...errors, name: "" });
             }
           }}
           placeholder="Jack Smith"
@@ -112,7 +124,7 @@ const ConsultationForm = () => {
           onChange={(e) => {
             setEmail(e.target.value);
             if (errors.email) {
-              setErrors({ ...errors, email: '' });
+              setErrors({ ...errors, email: "" });
             }
           }}
           placeholder="example@email.com"
@@ -128,7 +140,7 @@ const ConsultationForm = () => {
             onChange={(e) => {
               setSpecialist(e.target.value);
               if (errors.specialist) {
-                setErrors({ ...errors, specialist: '' });
+                setErrors({ ...errors, specialist: "" });
               }
             }}
           >
@@ -140,10 +152,14 @@ const ConsultationForm = () => {
         </div>
         {errors.specialist && <p className="error">{errors.specialist}</p>}
 
-        {message.text && <p className={message.type === 'error' ? 'error' : 'success'}>{message.text}</p>}
+        {message.text && (
+          <p className={message.type === "error" ? "error" : "success"}>
+            {message.text}
+          </p>
+        )}
 
         <button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? 'Submitting...' : 'Make an appointment'}
+          {isSubmitting ? "Submitting..." : "Make an appointment"}
         </button>
       </form>
     </section>

@@ -1,17 +1,16 @@
-import React, { useContext } from 'react';
-import { DarkModeContext } from '../App';
-import FAQList from './FAQList';
-
-
-
-import IconBoxPhoneDark from '../assets/images/icon-box-phone-dark.svg';
-import IconBoxPhoneLight from '../assets/images/icon-box-phone.svg';
-import IconBoxMessageDark from '../assets/images/icon-box-message-dark.svg';
-import IconBoxMessageLight from '../assets/images/icon-box-message.svg';
-import IconBoxPhoneTabletDark from '../assets/images/icon-box-phone-tablet-dark.svg';
-import IconBoxPhoneTabletLight from '../assets/images/icon-box-phone-tablet.svg';
-import IconBoxMessageTabletDark from '../assets/images/icon-box-message-tablet-dark.svg';
-import IconBoxMessageTabletLight from '../assets/images/icon-box-message-tablet.svg';
+import { useContext } from "react";
+import DarkModeContext from "../DarkModeContext";
+import FAQList from "./FAQList";
+import {
+  IconBoxPhoneDark,
+  IconBoxPhoneLight,
+  IconBoxMessageDark,
+  IconBoxMessageLight,
+  IconBoxPhoneTabletDark,
+  IconBoxPhoneTabletLight,
+  IconBoxMessageTabletDark,
+  IconBoxMessageTabletLight,
+} from "../constants/iconConstants";
 
 const FAQ = () => {
   const { isDarkMode } = useContext(DarkModeContext);
@@ -43,14 +42,16 @@ const FAQ = () => {
             </div>
           </div>
         </div>
-        
+
         <FAQList />
 
         <div className="contact-boxes-tablet">
           <div id="icon-box-phone-tablet">
             <a to="#">
               <img
-                src={isDarkMode ? IconBoxPhoneTabletDark : IconBoxPhoneTabletLight}
+                src={
+                  isDarkMode ? IconBoxPhoneTabletDark : IconBoxPhoneTabletLight
+                }
                 alt="Contact us - Phone"
               />
             </a>
@@ -58,7 +59,11 @@ const FAQ = () => {
           <div id="icon-box-message-tablet">
             <a to="#">
               <img
-                src={isDarkMode ? IconBoxMessageTabletDark : IconBoxMessageTabletLight}
+                src={
+                  isDarkMode
+                    ? IconBoxMessageTabletDark
+                    : IconBoxMessageTabletLight
+                }
                 alt="Contact us - Message"
               />
             </a>
@@ -75,4 +80,5 @@ const FAQ = () => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export default FAQ;

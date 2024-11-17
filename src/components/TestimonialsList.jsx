@@ -1,23 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import TestimonialsItem from './TestimonialsItem';
+import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import TestimonialsItem from "./TestimonialsItem";
 
 const TestimonialsList = ({ quotesIcon }) => {
   const [testimonialsItems, setTestimonialsItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchTestimonialsData = async () => {
       try {
-        const res = await fetch('https://win24-assignment.azurewebsites.net/api/testimonials');
+        const res = await fetch(
+          "https://win24-assignment.azurewebsites.net/api/testimonials",
+        );
         if (!res.ok) {
-          throw new Error('Failed to fetch testimonials');
+          throw new Error("Failed to fetch testimonials");
         }
         const data = await res.json();
         setTestimonialsItems(data);
       } catch (error) {
-        console.error('Error fetching testimonials data:', error);
-        setError('Unable to load testimonials at this time.');
+        console.error("Error fetching testimonials data:", error);
+        setError("Unable to load testimonials at this time.");
       } finally {
         setIsLoading(false);
       }
@@ -41,6 +44,10 @@ const TestimonialsList = ({ quotesIcon }) => {
       ))}
     </div>
   );
+};
+
+TestimonialsList.propTypes = {
+  quotesIcon: PropTypes.string.isRequired, // Changed to string
 };
 
 export default TestimonialsList;

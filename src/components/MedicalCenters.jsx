@@ -1,7 +1,15 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faFacebookF, faTwitter, faInstagram, faYoutube} from '@fortawesome/free-brands-svg-icons';
-import {faMapMarkerAlt, faPhone, faClock} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebookF,
+  faTwitter,
+  faInstagram,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
+import {
+  faMapMarkerAlt,
+  faPhone,
+  faClock,
+} from "@fortawesome/free-solid-svg-icons";
 
 const MedicalCenters = () => (
   <section className="medical-centers">
@@ -18,7 +26,8 @@ const MedicalCenters = () => (
       <div className="opening-hours">
         <FontAwesomeIcon icon={faClock} />
         <div>
-          <strong>Mon - Fri:</strong> 9:00 am - 10:00 pm <br /> <strong>Sat - Sun:</strong> 9:00 am - 8:00 pm
+          <strong>Mon - Fri:</strong> 9:00 am - 10:00 pm <br />{" "}
+          <strong>Sat - Sun:</strong> 9:00 am - 8:00 pm
         </div>
       </div>
     </div>
@@ -35,20 +44,37 @@ const MedicalCenters = () => (
       <div className="opening-hours">
         <FontAwesomeIcon icon={faClock} />
         <div>
-          <strong>Mon - Fri:</strong> 9:00 am - 10:00 pm <br/> <strong>Sat - Sun:</strong> 9:00 am - 8:00 pm
+          <strong>Mon - Fri:</strong> 9:00 am - 10:00 pm <br />{" "}
+          <strong>Sat - Sun:</strong> 9:00 am - 8:00 pm
         </div>
       </div>
       <div className="social-media">
-        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.facebook.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FontAwesomeIcon icon={faFacebookF} />
         </a>
-        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.twitter.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FontAwesomeIcon icon={faTwitter} />
         </a>
-        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.instagram.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FontAwesomeIcon icon={faInstagram} />
         </a>
-        <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.youtube.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FontAwesomeIcon icon={faYoutube} />
         </a>
       </div>

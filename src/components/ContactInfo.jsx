@@ -1,7 +1,6 @@
-import React from 'react';
-import ConsultationForm from './ConsultationForm';
-import { FaEnvelope, FaUsers } from 'react-icons/fa';
-import Breadcrumb from './Breadcrumb';
+import ConsultationForm from "./ConsultationForm";
+import { FaEnvelope, FaUsers } from "react-icons/fa";
+import Breadcrumb from "./Breadcrumb";
 
 const ContactInfo = () => (
   <div className="contact-info">
@@ -16,7 +15,10 @@ const ContactInfo = () => (
         </div>
         <div className="email-text">
           <h3>Email us</h3>
-          <p>Please feel free to drop us a line. We will respond as soon as possible.</p>
+          <p>
+            Please feel free to drop us a line. We will respond as soon as
+            possible.
+          </p>
           <a href="#">Leave a message →</a>
         </div>
       </div>
@@ -26,7 +28,9 @@ const ContactInfo = () => (
         </div>
         <div className="careers-text">
           <h3>Careers</h3>
-          <p>Sit ac ipsum leo lorem magna nunc mattis maecenas non vestibulum.</p>
+          <p>
+            Sit ac ipsum leo lorem magna nunc mattis maecenas non vestibulum.
+          </p>
           <a href="#">Send an application →</a>
         </div>
       </div>
