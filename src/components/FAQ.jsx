@@ -26,7 +26,7 @@ const FAQ = () => {
           </div>
           <div className="contact-boxes-desktop">
             <div id="icon-box-phone">
-              <a href="#">
+              <a to="#">
                 <img
                   src={isDarkMode ? IconBoxPhoneDark : IconBoxPhoneLight}
                   alt="Contact us - Phone"
@@ -34,7 +34,7 @@ const FAQ = () => {
               </a>
             </div>
             <div id="icon-box-message">
-              <a href="#">
+              <a to="#">
                 <img
                   src={isDarkMode ? IconBoxMessageDark : IconBoxMessageLight}
                   alt="Contact us - Message"
@@ -48,7 +48,7 @@ const FAQ = () => {
 
         <div className="contact-boxes-tablet">
           <div id="icon-box-phone-tablet">
-            <a href="#">
+            <a to="#">
               <img
                 src={isDarkMode ? IconBoxPhoneTabletDark : IconBoxPhoneTabletLight}
                 alt="Contact us - Phone"
@@ -56,7 +56,7 @@ const FAQ = () => {
             </a>
           </div>
           <div id="icon-box-message-tablet">
-            <a href="#">
+            <a to="#">
               <img
                 src={isDarkMode ? IconBoxMessageTabletDark : IconBoxMessageTabletLight}
                 alt="Contact us - Message"
@@ -66,7 +66,7 @@ const FAQ = () => {
         </div>
 
         <div className="contact-boxes-mobile">
-          <a href="#" id="contact-us" className="btn-primary">
+          <a to="#" id="contact-us" className="btn-primary">
             <span>Contact us now</span>
           </a>
         </div>

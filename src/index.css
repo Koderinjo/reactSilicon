@@ -129,6 +129,7 @@ body.dark {
 a {
     color: var(--color-body);
     text-decoration: none;
+    cursor: pointer;
     
 }
 a:hover {
@@ -1956,9 +1957,6 @@ select {
   background-color: var(--hover-background-color, #f0f0f0);
 }
 
-author {
-    width: 20rem;
-}
 
 
   
